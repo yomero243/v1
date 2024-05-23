@@ -6,7 +6,13 @@
 // Suggested code may be subject to a license. Learn more: ~LicenseLog:3394255726.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('/DamagedHelmet.glb', function (gltf) {
+  gltf.scene.scale.set(10.0, 10.0, 10.0);
+  scene.add(gltf.scene);
+});
 // Scene
 const scene = new THREE.Scene();
 
@@ -22,11 +28,6 @@ document.body.appendChild(renderer.domElement);
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Geometry
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
 
 // Lighting
 const light = new THREE.AmbientLight(0x404040); // soft white light
