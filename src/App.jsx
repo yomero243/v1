@@ -1,8 +1,11 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2779970271.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:715166937.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2455929402.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3632362688.
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 function App() {
   const [count, setCount] = useState(0)
