@@ -20,6 +20,9 @@ rgbeLoader.load(
   function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = texture;
+    console.log('Environment map loaded successfully');
+  },
+);        
 
     // Load the GLTF model
     const gltfLoader = new GLTFLoader();
@@ -30,20 +33,11 @@ rgbeLoader.load(
         scene.add(gltf.scene);
         console.log('GLTF model loaded successfully');
       },
-      undefined,
-      function (error) {
-        console.error('An error occurred while loading the GLTF model:', error);
-      }
+  
+    
     );
-  },
-  undefined,
-  function (error) {
-    console.error('An error occurred while loading the HDR texture:', error);
-  }
-);
-
-// Initialize the renderer
-renderer = new THREE.WebGLRenderer({ antialias: true });
+ // Initialize the renderer
+renderer = new THREE.WebGLRenderer({ antialias: false});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding; // Set output encoding
 document.body.appendChild(renderer.domElement);

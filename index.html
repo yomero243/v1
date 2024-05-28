@@ -2,12 +2,78 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <div class="min-h-screen flex justify-center items-center bg-sea1 bg-fixed bg-no-repeat bg-cover bg-center">
+      <h1 class="font-black text-6xl">Parallax</h1>
+    </div>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .section {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3em;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .parallax {
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .bg1 {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+      }
+
+      .bg2 {
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+      }
+
+      .bg3 {
+        background: linear-gradient(to right, #ff512f, #dd2476);
+      }
+
+      .content {
+        padding: 50px;
+        text-align: center;
+      }
+    </style>
+     <div class="section parallax bg1">
+      Parallax Section 1
+    </div>
+
+    <div class="content">
+      <h2>Sample Section</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam eveniet molestias veniam, inventore sint voluptates nam provident impedit laborum ipsa vel quos amet laboriosam dolorum suscipit! Nihil eos repellendus blanditiis repellat laboriosam veniam quod maxime ab! Ea eveniet doloremque, excepturi totam, et molestias dicta accusamus quibusdam quas sunt inventore!</p>
+    </div>
+
+    <div class="section parallax bg2">
+      Parallax Section 2
+    </div>
+
+    <div class="content">
+      <h2>Another Sample Section</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam eveniet molestias veniam, inventore sint voluptates nam provident impedit laborum ipsa vel quos amet laboriosam dolorum suscipit! Nihil eos repellendus blanditiis repellat laboriosam veniam quod maxime ab! Ea eveniet doloremque, excepturi totam, et molestias dicta accusamus quibusdam quas sunt inventore!</p>
+    </div>
+
+    <div class="section parallax bg3">
+      Parallax Section 3
+    </div>
+  
   </body>
 </html>
