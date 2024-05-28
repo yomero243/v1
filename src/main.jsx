@@ -13,33 +13,34 @@ camera.position.set(30.5, 10.5, 10.0);
 // Initialize the scene
 scene = new THREE.Scene();
 
+
+
+// Load the GLTF model
+const gltfLoader = new GLTFLoader();
+gltfLoader.load(
+  'public/DamagedHelmet.glb',
+  function (gltf) {
+    gltf.scene.scale.set(10.0, 10.0, 10.0);
+    scene.add(gltf.scene);
+    console.log('GLTF model loaded successfully');
+  },
+);
+
 // Load the environment map
 const rgbeLoader = new RGBELoader();
 rgbeLoader.load(
-  '/royal_esplanade_4k.hdr',
+  'public/royal_esplanade_4k.hdr',
   function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = texture;
+    scene.background = texture; // Use the HDR texture as the background
     console.log('Environment map loaded successfully');
   },
-);        
-
-    // Load the GLTF model
-    const gltfLoader = new GLTFLoader();
-    gltfLoader.load(
-      '/DamagedHelmet.glb',
-      function (gltf) {
-        gltf.scene.scale.set(10.0, 10.0, 10.0);
-        scene.add(gltf.scene);
-        console.log('GLTF model loaded successfully');
-      },
-  
-    
-    );
- // Initialize the renderer
-renderer = new THREE.WebGLRenderer({ antialias: false});
+);
+// Initialize the renderer
+renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.outputEncoding = THREE.sRGBEncoding; // Set output encoding
+renderer.outputEncoding = THREE.sRGBEncoding;
 document.body.appendChild(renderer.domElement);
 
 // Initialize the OrbitControls
