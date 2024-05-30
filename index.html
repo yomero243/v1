@@ -6,8 +6,7 @@
     <title>Vite + React</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  
     <div class="min-h-screen flex justify-center items-center bg-sea1 bg-fixed bg-no-repeat bg-cover bg-center">
       <h1 class="font-black text-6xl">Parallax</h1>
     </div>
@@ -41,7 +40,7 @@
       }
 
       .bg1 {
-        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        background: linear-gradient(to right, #908785, #feb47b);
       }
 
       .bg2 {
@@ -56,14 +55,51 @@
         padding: 50px;
         text-align: center;
       }
+
+      /* Dark mode styles */
+      .dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .dark-mode .section {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+      }
+
+      .dark-mode .content {
+        color: #e0e0e0;
+      }
+
+      /* Botón de modo oscuro */
+      .dark-mode-button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .dark-mode-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+      }
     </style>
+
     <div class="section parallax bg1">
       Parallax Section 1
     </div>
 
     <div class="content">
       <h2>Sample Section</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam eveniet molestias veniam, inventore sint voluptates nam provident impedit laborum ipsa vel quos amet laboriosam dolorum suscipit! Nihil eos repellendus blanditiis repellat laboriosam veniam quod maxime ab! Ea eveniet doloremque, excepturi totam, et molestias dicta accusamus quibusdam quas sunt inventore!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisi inventore!</p>
     </div>
 
     <div class="section parallax bg2">
@@ -72,12 +108,25 @@
 
     <div class="content">
       <h2>Another Sample Section</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam eveniet molestias veniam, inventore sint voluptates nam provident impedit laborum ipsa vel quos amet laboriosam dolorum suscipit! Nihil eos repellendus blanditiis repellat laboriosam veniam quod maxime ab! Ea eveniet doloremque, excepturi totam, et molestias dicta accusamus quibusdam quas sunt inventore!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicinge!</p>
     </div>
 
     <div class="section parallax bg3">
       Parallax Section 3
     </div>
-  
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Dark mode toggle script -->
+    <script>
+      const darkModeButton = document.createElement('button');
+      darkModeButton.innerText = 'Toggle Dark Mode';
+      darkModeButton.classList.add('dark-mode-button');
+      document.body.appendChild(darkModeButton);
+
+      darkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
   </body>
 </html>
